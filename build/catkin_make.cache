@@ -1,0 +1,2 @@
+juniraspberry
+-DCATKIN_DEVEL_PREFIX=/home/pi/Juni/ProjectJuni-Tkinter/devel -DCMAKE_INSTALL_PREFIX=/home/pi/Juni/ProjectJuni-Tkinter/install -G Unix Makefiles

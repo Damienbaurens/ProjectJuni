@@ -1,0 +1,8 @@
+prefix=/home/pi/Juni/ProjectJuni-Tkinter/devel
+
+Name: juniraspberry
+Description: Description of juniraspberry
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

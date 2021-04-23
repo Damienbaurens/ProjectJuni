@@ -1,0 +1,41 @@
+Notice pour lancer les différents modules :
+
+1 : Installer Ros sur la raspberry si ce n'est pas déjà fait
+2 : Installer Python 3.7 sur la raspberry si ce n'est pas déjà fait 
+3 : Cloner la branche "RaspberryPart" depuis le github sur la raspberry (Pas la NUCPart dont la place est sur le NUC)
+4 : Connecter la raspberry sur le même réseau que le NUC master.
+5 : lancer un terminal sur le bureau
+6 : exécuter la ligne de commande suivante: 
+hostname -I
+  notez bien l'IP de la raspberry
+7 : exécuter la ligne de commande suivante: 
+nano .bashrc
+8 : dans le bashrc, ajouter à la fin les 3 lignes suivantes (si elles y sont déjà, changez seulement les IP)
+export ROS_MASTER_URI=http://<ipDuNuc>:11311/
+export ROS_HOSTNAME=<ipDeLaRaspberry>
+export ROS_IP=<ipDeLaRaspberry>
+
+9 : exécuter la ligne de commande suivante
+source .bashrc
+
+10 : autoriser l'accès aux 2 scripts python :
+chmod +x <cheminDuScript>/GUI.py
+chmod +x <cheminDuScript>/VocalAssist.py
+
+11 : lancer 2 terminaux dans le dossier "ProjectJuni-Tkinter"
+12 : exécuter la ligne de code suivante sur chaque terminal ouvert (il faut le faire à chaque fois, ou alors rajouter la commande dans le bashrc):
+source devel setup.bash
+
+13 : lancer les programmes dans cet ordre: 
+rosrun juniRaspberry GUI.py
+rosrun juniRaspberry Assist.py
+
+
+FEATURES
+-> Le robot se réveille soit en lui disant "Juni", soit en touchant l'interface.
+-> Si le bras est prêt à être utilisé (voir le readMe de la partie NUC), toucher les extrémités le fera se déplacer dans le même sens, toucher le sens le fera revenir à la position [0,0]
+-> lui toucher un oeil le fera fermer les yeux et dire "Aie" si vous avez une enceinte apareillée à la raspberry
+-> lui dire "bonjour" le fera répondre "bonjour"
+-> lui dire une phrase avec le mot "heure" lui fera répondre l'heure
+-> lui dire "au revoir" lui fera dire "au revoir" et il se rendormira (il sera toujours possible de controller le bras avec)
+-> les leds s'allument lorsqu'il trouve un mot (ce qui aide à patienter vu le temps qu'il met)
